@@ -52,21 +52,27 @@ final class MainViewController: UIViewController {
         noResultsView.isHidden = true
         noResultsView.button.isHidden = true
         noResultsView.titleLabel.text = "No Results"
+        noResultsView.titleLabel.accessibilityIdentifier = AccessibilityIds.MainScreen.NoResultsView.textMessage
+
+        noResultsView.accessibilityIdentifier = AccessibilityIds.MainScreen.NoResultsView.noResultsView
         
         errorView.isHidden = true
         errorView.titleLabel.text = "Something went wrong :("
         errorView.button.setTitle("Refresh", for: .normal)
         errorView.button.addTarget(self, action: #selector(onRefreshButtonTapped), for: .touchUpInside)
+        errorView.accessibilityIdentifier = AccessibilityIds.MainScreen.ErrorView.errorView
         
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search GIPHY"
         searchBar.returnKeyType = .done
+        searchBar.accessibilityIdentifier = AccessibilityIds.MainScreen.searchBar
         
         titleLabel.textColor = .black
         titleLabel.font = UIFont.boldSystemFont(ofSize: 32)
         titleLabel.text = "Swifty GIPHY"
+        titleLabel.accessibilityIdentifier = AccessibilityIds.MainScreen.title
     }
     
     private func setupTableView() {
@@ -77,6 +83,7 @@ final class MainViewController: UIViewController {
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 0
+        tableView.accessibilityIdentifier = AccessibilityIds.MainScreen.ResultsTableView.resultsTableView
     }
     
     private func setupLayout() {

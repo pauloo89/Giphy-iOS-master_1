@@ -10,8 +10,19 @@ import XCTest
 
 class MainScreenTestSuite: BaseTestCase {
 
-    func testSomeTest() {
-        application.launch()
+    func testSearchResults() {
+        pageObjectsFactory
+            .makeMainScreenPageObject()
+            .checkSearchBarText(someText: "Search GIPHY")
+            .searchSomething(someText: " ")
+            .waitNoResultsView()
+            .checkNoResultsMessage()
+            .checkSearchBarText(someText: " ")
+            .closeKeyboard()
+            .pasteSomeTextInSearchBar(someText: "1")
+            .checkSearchBarText(someText: " 1")
+            .closeKeyboard()
+            .checkCellsWithGifCount(expectedCount: 10)
     }
     
 }

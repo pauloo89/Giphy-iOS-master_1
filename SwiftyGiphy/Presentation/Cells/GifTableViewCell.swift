@@ -39,14 +39,18 @@ final class GifTableViewCell: CommonInitTableViewCell {
     
     private func setupViews() {
         selectionStyle = .none
+        accessibilityIdentifier = AccessibilityIds.MainScreen.ResultsTableView.Cell.cell
         
         userNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
         userNameLabel.textColor = .black
+        userNameLabel.accessibilityIdentifier = AccessibilityIds.MainScreen.ResultsTableView.Cell.userName
         
         avatarImageView.clipsToBounds = true
         avatarImageView.setRounded(radius: avatarSize / 2)
+        avatarImageView.accessibilityIdentifier = AccessibilityIds.MainScreen.ResultsTableView.Cell.avatar
         gifImageView.clipsToBounds = true
         gifImageView.setRounded()
+        gifImageView.accessibilityIdentifier = AccessibilityIds.MainScreen.ResultsTableView.Cell.gif
     }
     
     private func setupLayout() {

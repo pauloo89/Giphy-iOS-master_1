@@ -29,6 +29,12 @@ class BasePageObject {
         someXCUIElement.buttons.firstMatch.tap()
     }
 
+    func pasteSomeTextInTextField() {
+        let menuItems = application.menus.firstMatch.menuItems
+        let buttonNumber = menuItems.count - 1
+        menuItems.element(boundBy: buttonNumber).tap()
+    }
+
     func waitAndCheckForExistence(_ element: XCUIElement, timeout: TimeInterval = 5) {
         let predicate = NSPredicate(format: "exists == true")
         let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
@@ -41,6 +47,13 @@ class BasePageObject {
         let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
         let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
         XCTAssert(result == .completed, "\(element) not absent after \(timeout) seconds.")
+    }
+
+    func waitAndCheckElementIsVisible(_ element: XCUIElement, timeout: TimeInterval = 5) {
+        let predicate = NSPredicate(format: "hittable == true")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
+        let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
+        XCTAssert(result == .completed, "Failed to find \(element) after \(timeout) seconds.")
     }
 
 }

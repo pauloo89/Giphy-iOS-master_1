@@ -19,6 +19,7 @@
   "testTargets" : [
     {
       "skippedTests" : [
+        "BaseTestCase",
         "SwiftyGiphyUITests"
       ],
       "target" : {
