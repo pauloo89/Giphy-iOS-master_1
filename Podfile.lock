@@ -1,0 +1,33 @@
+PODS:
+  - Alamofire (4.8.2)
+  - FLAnimatedImage (1.0.12)
+  - Nuke (8.0.1)
+  - Nuke-FLAnimatedImage-Plugin (6.2):
+    - FLAnimatedImage (~> 1.0)
+    - Nuke (~> 8.0)
+  - SnapKit (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Nuke
+  - Nuke-FLAnimatedImage-Plugin
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - FLAnimatedImage
+    - Nuke
+    - Nuke-FLAnimatedImage-Plugin
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Nuke: e6a65472f59c1bfe779cb495760951f0121ef7c0
+  Nuke-FLAnimatedImage-Plugin: c6e8f6cffd57659953a149ff1682370b9040d09d
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+
+PODFILE CHECKSUM: 71abb9cb1abed76218e58a8ada6436dc0d4d5983
+
+COCOAPODS: 1.8.4
