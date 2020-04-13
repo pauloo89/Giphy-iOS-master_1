@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "3ADF8E7B-C040-4D5B-BC69-0750B5110F4F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SwiftyGiphy.xcodeproj",
+      "identifier" : "B4B426F423205FF100E764D4",
+      "name" : "SwiftyGiphy"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "SwiftyGiphyUITests"
+      ],
+      "target" : {
+        "containerPath" : "container:SwiftyGiphy.xcodeproj",
+        "identifier" : "0E9B38C02444DD5F009E9803",
+        "name" : "SwiftyGiphyUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
