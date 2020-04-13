@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E9B38C42444DD5F009E9803 /* SwiftyGiphyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B38C32444DD5F009E9803 /* SwiftyGiphyUITests.swift */; };
 		0E9B38CD2444DE0A009E9803 /* BasePageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B38CC2444DE0A009E9803 /* BasePageObject.swift */; };
 		0E9B38D02444DE28009E9803 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B38CF2444DE28009E9803 /* BaseTestCase.swift */; };
-		0E9B38D32444DF39009E9803 /* 123.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B38D22444DF39009E9803 /* 123.swift */; };
+		0EF6DC4C2444E1350077FCA5 /* PageObjectsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6DC4B2444E1350077FCA5 /* PageObjectsFactory.swift */; };
+		0EF6DC4E2444E2360077FCA5 /* MainScreenTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6DC4D2444E2360077FCA5 /* MainScreenTestSuite.swift */; };
+		0EF6DC512444E2FC0077FCA5 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6DC502444E2FC0077FCA5 /* XCUIElement+Extension.swift */; };
 		7CDAF20D277745CA63178C3A /* Pods_SwiftyGiphy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA092AD425FD5DF817353F9D /* Pods_SwiftyGiphy.framework */; };
 		B42060B8232519ED0038C411 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42060B7232519ED0038C411 /* Error.swift */; };
 		B42060BA23251D950038C411 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42060B923251D950038C411 /* API.swift */; };
@@ -47,12 +48,13 @@
 
 /* Begin PBXFileReference section */
 		0E9B38C12444DD5F009E9803 /* SwiftyGiphyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyGiphyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E9B38C32444DD5F009E9803 /* SwiftyGiphyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGiphyUITests.swift; sourceTree = "<group>"; };
 		0E9B38C52444DD5F009E9803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E9B38CC2444DE0A009E9803 /* BasePageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePageObject.swift; sourceTree = "<group>"; };
 		0E9B38CF2444DE28009E9803 /* BaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
-		0E9B38D22444DF39009E9803 /* 123.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 123.swift; sourceTree = "<group>"; };
-		0E9B38D52444DFCE009E9803 /* SwiftyGiphy.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = SwiftyGiphy.xctestplan; path = TestPlans/SwiftyGiphy.xctestplan; sourceTree = "<group>"; };
+		0E9B38D52444DFCE009E9803 /* SwiftyGiphy.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftyGiphy.xctestplan; sourceTree = "<group>"; };
+		0EF6DC4B2444E1350077FCA5 /* PageObjectsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageObjectsFactory.swift; sourceTree = "<group>"; };
+		0EF6DC4D2444E2360077FCA5 /* MainScreenTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTestSuite.swift; sourceTree = "<group>"; };
+		0EF6DC502444E2FC0077FCA5 /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		47BF894A6CCAEE9B5BD81171 /* Pods-SwiftyGiphy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyGiphy.release.xcconfig"; path = "Target Support Files/Pods-SwiftyGiphy/Pods-SwiftyGiphy.release.xcconfig"; sourceTree = "<group>"; };
 		B42060B7232519ED0038C411 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		B42060B923251D950038C411 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -103,11 +105,10 @@
 		0E9B38C22444DD5F009E9803 /* SwiftyGiphyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0E9B38D52444DFCE009E9803 /* SwiftyGiphy.xctestplan */,
+				0EF6DC4F2444E2D80077FCA5 /* Extensions */,
 				0E9B38D12444DF16009E9803 /* TestPlans */,
 				0E9B38CE2444DE13009E9803 /* Tests */,
 				0E9B38CB2444DDE4009E9803 /* PageObjects */,
-				0E9B38C32444DD5F009E9803 /* SwiftyGiphyUITests.swift */,
 				0E9B38C52444DD5F009E9803 /* Info.plist */,
 			);
 			path = SwiftyGiphyUITests;
@@ -117,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				0E9B38CC2444DE0A009E9803 /* BasePageObject.swift */,
+				0EF6DC4B2444E1350077FCA5 /* PageObjectsFactory.swift */,
 			);
 			path = PageObjects;
 			sourceTree = "<group>";
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				0E9B38CF2444DE28009E9803 /* BaseTestCase.swift */,
+				0EF6DC4D2444E2360077FCA5 /* MainScreenTestSuite.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -132,9 +135,17 @@
 		0E9B38D12444DF16009E9803 /* TestPlans */ = {
 			isa = PBXGroup;
 			children = (
-				0E9B38D22444DF39009E9803 /* 123.swift */,
+				0E9B38D52444DFCE009E9803 /* SwiftyGiphy.xctestplan */,
 			);
 			path = TestPlans;
+			sourceTree = "<group>";
+		};
+		0EF6DC4F2444E2D80077FCA5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0EF6DC502444E2FC0077FCA5 /* XCUIElement+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1CFE0B42F27719267AC39C3A /* Frameworks */ = {
@@ -437,8 +448,9 @@
 			files = (
 				0E9B38CD2444DE0A009E9803 /* BasePageObject.swift in Sources */,
 				0E9B38D02444DE28009E9803 /* BaseTestCase.swift in Sources */,
-				0E9B38D32444DF39009E9803 /* 123.swift in Sources */,
-				0E9B38C42444DD5F009E9803 /* SwiftyGiphyUITests.swift in Sources */,
+				0EF6DC4C2444E1350077FCA5 /* PageObjectsFactory.swift in Sources */,
+				0EF6DC512444E2FC0077FCA5 /* XCUIElement+Extension.swift in Sources */,
+				0EF6DC4E2444E2360077FCA5 /* MainScreenTestSuite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

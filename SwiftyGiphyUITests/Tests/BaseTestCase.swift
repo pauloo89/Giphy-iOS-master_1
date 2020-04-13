@@ -10,9 +10,14 @@ import XCTest
 
 class BaseTestCase: XCTestCase {
 
-    func testSomeTest() {
-        XCUIApplication().launch()
+    let application = XCUIApplication()
+    private(set) var pageObjectsFactory: PageObjectsFactory!
 
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        application.launch()
+        pageObjectsFactory = PageObjectsFactory(application: application)
     }
 
 }
