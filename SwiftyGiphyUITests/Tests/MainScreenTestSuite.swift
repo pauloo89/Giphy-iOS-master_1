@@ -23,6 +23,15 @@ class MainScreenTestSuite: BaseTestCase {
             .checkSearchBarText(someText: " 1")
             .closeKeyboard()
             .checkCellsWithGifCount(expectedCount: 10)
+            .checkNoResultsMessageAbsent()
     }
+
+    func testMainScreenPagination() {
+        pageObjectsFactory
+            .makeMainScreenPageObject()
+            .waitLoadCellsGif()
+            .checkPaginationWithSwipe(pageCount: 5)
+
+        }
     
 }
