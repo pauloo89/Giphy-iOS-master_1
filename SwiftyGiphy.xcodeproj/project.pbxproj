@@ -15,6 +15,7 @@
 		0EF6DC512444E2FC0077FCA5 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6DC502444E2FC0077FCA5 /* XCUIElement+Extension.swift */; };
 		0EF6DC532444E8FC0077FCA5 /* AccessibilityIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6DC522444E8FC0077FCA5 /* AccessibilityIds.swift */; };
 		0EF6DC542444E90D0077FCA5 /* AccessibilityIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF6DC522444E8FC0077FCA5 /* AccessibilityIds.swift */; };
+		7AD23BA4244662B9007D34EA /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD23BA3244662B9007D34EA /* XCUIApplication+Extension.swift */; };
 		7CDAF20D277745CA63178C3A /* Pods_SwiftyGiphy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA092AD425FD5DF817353F9D /* Pods_SwiftyGiphy.framework */; };
 		B42060B8232519ED0038C411 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42060B7232519ED0038C411 /* Error.swift */; };
 		B42060BA23251D950038C411 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42060B923251D950038C411 /* API.swift */; };
@@ -61,6 +62,7 @@
 		0EF6DC502444E2FC0077FCA5 /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		0EF6DC522444E8FC0077FCA5 /* AccessibilityIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIds.swift; sourceTree = "<group>"; };
 		47BF894A6CCAEE9B5BD81171 /* Pods-SwiftyGiphy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyGiphy.release.xcconfig"; path = "Target Support Files/Pods-SwiftyGiphy/Pods-SwiftyGiphy.release.xcconfig"; sourceTree = "<group>"; };
+		7AD23BA3244662B9007D34EA /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		B42060B7232519ED0038C411 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		B42060B923251D950038C411 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B42060BB23251F9E0038C411 /* GiphyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyService.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				0EF6DC502444E2FC0077FCA5 /* XCUIElement+Extension.swift */,
+				7AD23BA3244662B9007D34EA /* XCUIApplication+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				0EF6DC512444E2FC0077FCA5 /* XCUIElement+Extension.swift in Sources */,
 				0EF6DC4E2444E2360077FCA5 /* MainScreenTestSuite.swift in Sources */,
 				0EF6DC542444E90D0077FCA5 /* AccessibilityIds.swift in Sources */,
+				7AD23BA4244662B9007D34EA /* XCUIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
