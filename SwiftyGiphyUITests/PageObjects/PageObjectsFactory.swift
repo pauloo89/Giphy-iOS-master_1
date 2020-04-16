@@ -22,7 +22,7 @@ final class PageObjectsFactory {
     }
     
     // MARK: - PageObjects
-
+    
     func makeMainScreenPageObject() -> MainScreenPageObject {
         return initializePageObject(ofType: MainScreenPageObject.self)
     }

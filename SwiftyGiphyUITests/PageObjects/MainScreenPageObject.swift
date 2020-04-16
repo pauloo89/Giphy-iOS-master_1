@@ -22,7 +22,7 @@ final class MainScreenPageObject: BasePageObject {
     private lazy var noResultsView = application.otherElements[id.NoResultsView.noResultsView].firstMatch
     private lazy var noResultViewMessage = noResultsView.staticTexts[id.NoResultsView.textMessage].firstMatch
     private lazy var somethingWrong = application.otherElements[id.ErrorView.errorView].firstMatch
-   
+    
     // MARK: - Helpers
     
     func waitLoadCellIsVisible() -> Self {
@@ -77,7 +77,7 @@ final class MainScreenPageObject: BasePageObject {
     }
     
     func closeKeyboard() -> Self {
-        application.keyboards.buttons["done"].firstMatch.tap()
+        application.keyboards.buttons.element(boundBy: 2).tap()
         return self
     }
     
@@ -164,12 +164,21 @@ final class MainScreenPageObject: BasePageObject {
     }
     
     private func getSwipedCellsCount(swipedCellsCount: Int = 0) -> Int {
-        var localSwipedCellsCount: Int = swipedCellsCount
-
+        var localSwipedCellsCount = swipedCellsCount
+        let visibleAreaTopBound = searchTextField.frame.maxY + 20
+        let visibleAreaLowBound = getVisibleArea()
+        
         for i in localSwipedCellsCount ... gifCells.count - 1 {
-            if gifCells.element(boundBy: i).frame.maxY < searchTextField.frame.maxY + 20 {
+            let gifCellMaxY = gifCells.element(boundBy: i).frame.maxY
+            
+            if gifCellMaxY < visibleAreaTopBound {
                 localSwipedCellsCount += 1
             }
+            
+            if gifCellMaxY > visibleAreaLowBound {
+                break
+            }
+            
         }
         return localSwipedCellsCount
     }

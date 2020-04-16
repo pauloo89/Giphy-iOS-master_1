@@ -21,6 +21,7 @@
     {
       "selectedTests" : [
         "MainScreenTestSuite\/testCellsElement()",
+        "MainScreenTestSuite\/testErrorScreen()",
         "MainScreenTestSuite\/testErrorScreenOn()",
         "MainScreenTestSuite\/testMainScreenPagination()",
         "MainScreenTestSuite\/testSafePositionAfterReopen()",

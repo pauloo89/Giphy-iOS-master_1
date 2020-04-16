@@ -9,7 +9,7 @@
 import XCTest
 
 class MainScreenTestSuite: BaseTestCase {
-
+    
     func testSearchAndNoresultsView() {
         pageObjectsFactory
             .makeMainScreenPageObject()
@@ -39,13 +39,13 @@ class MainScreenTestSuite: BaseTestCase {
             .checkCellsWithGifCount(expectedCount: 10)
             .checkPaginationWithSwipe(pageCount: 3)
     }
-
+    
     func testMainScreenPagination() {
         pageObjectsFactory
             .makeMainScreenPageObject()
             .waitLoadCellIsVisible()
             .checkPaginationWithSwipe(pageCount: 5)
-        }
+    }
     
     func testSafePositionAfterReopen() {
         pageObjectsFactory
@@ -55,20 +55,20 @@ class MainScreenTestSuite: BaseTestCase {
             .checkScreenTitle()
             .restartAppAndCheckState()
             .checkPaginationWithSwipe(pageCount: 2, continuePagination: true)
-        }
+    }
     
     func testCellsElement() {
         pageObjectsFactory
-        .makeMainScreenPageObject()
-        .checkCellsElements()
+            .makeMainScreenPageObject()
+            .checkCellsElements()
     }
     
-    func testErrorScreenOn() {
+    func testErrorScreen() {
         pageObjectsFactory
-        .makeMainScreenPageObject()
-        .waitLoadCellIsVisible()
-        .checkSomethingWentWrongScreen()
-        .checkScreenTitle()
+            .makeMainScreenPageObject()
+            .waitLoadCellIsVisible()
+            .checkSomethingWentWrongScreen()
+            .checkScreenTitle()
     }
     
 }

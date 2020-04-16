@@ -52,7 +52,6 @@ final class GiphyServiceImpl {
                             return .failure(NetworkingError.default)
                         } else {
                             return .success(dataResponse.data)
-                            
                         }
                     } catch {
                         print(error.localizedDescription)
