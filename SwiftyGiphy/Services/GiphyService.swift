@@ -48,8 +48,12 @@ final class GiphyServiceImpl {
                                   dataResponse.meta?.msg ?? "unknown")
                             return .failure(NetworkingError.default)
                         }
-                        
-                        return .success(dataResponse.data)
+                        if ProcessInfo.processInfo.environment["UI_TESTS"] != nil {
+                            return .failure(NetworkingError.default)
+                        } else {
+                            return .success(dataResponse.data)
+                            
+                        }
                     } catch {
                         print(error.localizedDescription)
                         return .failure(error)
