@@ -19,7 +19,7 @@ class NetworkingImpl: Networking {
         parameters: [String: Any],
         completion: @escaping (Swift.Result<Data, Error>) -> Void
     ) {
-        Alamofire.request(
+        AF.request(
             url,
             method: method,
             parameters: parameters,
