@@ -730,7 +730,7 @@
 				0E9B38C92444DD5F009E9803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		B4B426F023205FF100E764D4 /* Build configuration list for PBXProject "SwiftyGiphy" */ = {
 			isa = XCConfigurationList;
@@ -739,7 +739,7 @@
 				B4B4270623205FF200E764D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		B4B4270723205FF200E764D4 /* Build configuration list for PBXNativeTarget "SwiftyGiphy" */ = {
 			isa = XCConfigurationList;
@@ -748,7 +748,7 @@
 				B4B4270923205FF200E764D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

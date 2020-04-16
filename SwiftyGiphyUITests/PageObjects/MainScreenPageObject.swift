@@ -14,18 +14,35 @@ final class MainScreenPageObject: BasePageObject {
     
     // MARK: - XCUIElements
     
-    
+    private lazy var screenTitle = application.staticTexts[id.title].firstMatch
     private lazy var searchBar = application.otherElements[id.searchBar].firstMatch
     private lazy var searchTextField = searchBar.searchFields.firstMatch
     private lazy var resultsTableView = application.tables[id.ResultsTableView.resultsTableView].firstMatch
     private lazy var gifCells = resultsTableView.cells
     private lazy var noResultsView = application.otherElements[id.NoResultsView.noResultsView].firstMatch
     private lazy var noResultViewMessage = noResultsView.staticTexts[id.NoResultsView.textMessage].firstMatch
-    
+    private lazy var somethingWrong = application.otherElements[id.ErrorView.errorView].firstMatch
+   
     // MARK: - Helpers
     
-    func waitLoadCellsGif() -> Self {
+    func waitLoadCellIsVisible() -> Self {
         waitAndCheckForExistence(gifCells.element(boundBy: 0), timeout: 20)
+        return self
+    }
+    
+    @discardableResult
+    func checkScreenTitle() -> Self {
+        waitAndCheckElementIsVisible(screenTitle)
+        XCTAssertEqual(screenTitle.label, "Swifty GIPHY")
+        return self
+    }
+    
+    func checkSomethingWentWrongScreen() -> Self {
+        application.launchEnvironment["UI_TESTS"] = "true"
+        application.launch()
+        waitAndCheckElementIsVisible(somethingWrong)
+        waitAndCheckElementIsVisible(somethingWrong.staticTexts["Something went wrong :("].firstMatch)
+        waitAndCheckElementIsVisible(somethingWrong.buttons["Refresh"])
         return self
     }
     
@@ -80,17 +97,6 @@ final class MainScreenPageObject: BasePageObject {
         return self
     }
     
-    func getSwipedCellsCount(swipedCellsCount: Int = 0) -> Int {
-        var localSwipedCellsCount: Int = swipedCellsCount
-
-        for i in localSwipedCellsCount ... gifCells.count - 1 {
-            if gifCells.element(boundBy: i).frame.maxY < searchTextField.frame.maxY + 20 {
-                localSwipedCellsCount += 1
-            }
-        }
-        return localSwipedCellsCount
-    }
-    
     @discardableResult
     func checkPaginationWithSwipe(pageCount: Int, continuePagination: Bool = false) -> Self {
         var expectedCellCount = pageCount * 10
@@ -105,7 +111,6 @@ final class MainScreenPageObject: BasePageObject {
         }
         
         while swipedCellsCount <= expectedCellCount - 1 {
-            
             if gifCells.element(boundBy: swipedCellsCount + 1).isHittable {
                 let fromSwipe = gifCells.element(boundBy: swipedCellsCount + 1).staticTexts.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.00))
                 let toSwipe = gifCells.element(boundBy: swipedCellsCount).staticTexts.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5))
@@ -122,7 +127,6 @@ final class MainScreenPageObject: BasePageObject {
             XCTFail("После \(swipeCount) скроллов след страница не подгрузилась")
             
         }
-        
         return self
     }
     
@@ -132,12 +136,42 @@ final class MainScreenPageObject: BasePageObject {
         selectedCell.tap()
         let expectedUserName = selectedCell.staticTexts.firstMatch.label
         let expectedFrame = selectedCell.frame
+        let cellBounts = gifCells.count
         
         XCUIApplication.preferences.launch()
         application.activate()
         XCTAssertEqual(expectedFrame, gifCells.element(boundBy: cellNumber).frame)
         XCTAssertEqual(expectedUserName, gifCells.element(boundBy: cellNumber).staticTexts.firstMatch.label)
+        XCTAssertEqual(cellBounts, gifCells.count)
         return self
+    }
+    
+    func checkCellsElements() {
+        for i in 0 ... gifCells.count - 1 {
+            waitAndCheckForExistence(gifCells.element(boundBy: i).images[id.ResultsTableView.Cell.avatar], timeout: 20)
+            waitAndCheckForExistence(gifCells.element(boundBy: i).images[id.ResultsTableView.Cell.gif], timeout: 20)
+            waitAndCheckForExistence(gifCells.element(boundBy: i).staticTexts[id.ResultsTableView.Cell.userName], timeout: 20)
+            application.swipeUp()
+        }
+    }
+    
+    private func getVisibleArea() -> CGFloat  {
+        let screenSize = Int(ProcessInfo.processInfo.environment["SIMULATOR_MAINSCREEN_WIDTH"] ?? "0")!
+        let screenSizeCGFloat = CGFloat(screenSize)
+        let searchSize = searchBar.frame.maxY
+        let visibleArea = screenSizeCGFloat - searchSize
+        return visibleArea
+    }
+    
+    private func getSwipedCellsCount(swipedCellsCount: Int = 0) -> Int {
+        var localSwipedCellsCount: Int = swipedCellsCount
+
+        for i in localSwipedCellsCount ... gifCells.count - 1 {
+            if gifCells.element(boundBy: i).frame.maxY < searchTextField.frame.maxY + 20 {
+                localSwipedCellsCount += 1
+            }
+        }
+        return localSwipedCellsCount
     }
     
 }

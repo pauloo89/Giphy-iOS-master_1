@@ -13,15 +13,19 @@ class MainScreenTestSuite: BaseTestCase {
     func testSearchAndNoresultsView() {
         pageObjectsFactory
             .makeMainScreenPageObject()
-            .waitLoadCellsGif()
+            .waitLoadCellIsVisible()
+            .checkScreenTitle()
             .checkSearchBarText(someText: "Search GIPHY")
             .searchSomething(someText: " ")
+            .checkScreenTitle()
             .waitNoResultsView()
             .checkNoResultsMessage()
+            .checkScreenTitle()
             .checkSearchBarText(someText: " ")
             .pasteSomeTextInFocusedSearchBar(someText: "1")
             .checkSearchBarText(someText: " 1")
             .checkNoResultsMessageAbsent()
+            .checkScreenTitle()
             .checkCellsWithGifCount(expectedCount: 10)
             .checkSearchClearButton()
     }
@@ -29,7 +33,7 @@ class MainScreenTestSuite: BaseTestCase {
     func testSearchPagination() {
         pageObjectsFactory
             .makeMainScreenPageObject()
-            .waitLoadCellsGif()
+            .waitLoadCellIsVisible()
             .searchSomething(someText: "time")
             .closeKeyboard()
             .checkCellsWithGifCount(expectedCount: 10)
@@ -39,17 +43,32 @@ class MainScreenTestSuite: BaseTestCase {
     func testMainScreenPagination() {
         pageObjectsFactory
             .makeMainScreenPageObject()
-            .waitLoadCellsGif()
+            .waitLoadCellIsVisible()
             .checkPaginationWithSwipe(pageCount: 5)
         }
     
     func testSafePositionAfterReopen() {
         pageObjectsFactory
             .makeMainScreenPageObject()
-            .waitLoadCellsGif()
+            .waitLoadCellIsVisible()
             .checkPaginationWithSwipe(pageCount: 2)
+            .checkScreenTitle()
             .restartAppAndCheckState()
             .checkPaginationWithSwipe(pageCount: 2, continuePagination: true)
         }
+    
+    func testCellsElement() {
+        pageObjectsFactory
+        .makeMainScreenPageObject()
+        .checkCellsElements()
+    }
+    
+    func testErrorScreenOn() {
+        pageObjectsFactory
+        .makeMainScreenPageObject()
+        .waitLoadCellIsVisible()
+        .checkSomethingWentWrongScreen()
+        .checkScreenTitle()
+    }
     
 }

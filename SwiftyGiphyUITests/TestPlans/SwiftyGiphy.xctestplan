@@ -14,13 +14,18 @@
       "containerPath" : "container:SwiftyGiphy.xcodeproj",
       "identifier" : "B4B426F423205FF100E764D4",
       "name" : "SwiftyGiphy"
-    }
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
-      "skippedTests" : [
-        "BaseTestCase",
-        "SwiftyGiphyUITests"
+      "selectedTests" : [
+        "MainScreenTestSuite\/testCellsElement()",
+        "MainScreenTestSuite\/testErrorScreenOn()",
+        "MainScreenTestSuite\/testMainScreenPagination()",
+        "MainScreenTestSuite\/testSafePositionAfterReopen()",
+        "MainScreenTestSuite\/testSearchAndNoresultsView()",
+        "MainScreenTestSuite\/testSearchPagination()"
       ],
       "target" : {
         "containerPath" : "container:SwiftyGiphy.xcodeproj",

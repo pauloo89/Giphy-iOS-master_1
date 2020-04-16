@@ -25,8 +25,6 @@ final class PageObjectsFactory {
 
     func makeMainScreenPageObject() -> MainScreenPageObject {
         return initializePageObject(ofType: MainScreenPageObject.self)
-
     }
-    
     
 }
