@@ -148,10 +148,12 @@ final class MainScreenPageObject: BasePageObject {
     
     func checkCellsElements() {
         for i in 0 ... gifCells.count - 1 {
+            application.swipeUp()
+            application.swipeDown()
+            gifCells.element(boundBy: i).tap()
             waitAndCheckForExistence(gifCells.element(boundBy: i).images[id.ResultsTableView.Cell.avatar], timeout: 20)
             waitAndCheckForExistence(gifCells.element(boundBy: i).images[id.ResultsTableView.Cell.gif], timeout: 20)
             waitAndCheckForExistence(gifCells.element(boundBy: i).staticTexts[id.ResultsTableView.Cell.userName], timeout: 20)
-            application.swipeUp()
         }
     }
     

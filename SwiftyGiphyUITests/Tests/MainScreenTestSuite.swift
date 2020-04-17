@@ -60,6 +60,7 @@ class MainScreenTestSuite: BaseTestCase {
     func testCellsElement() {
         pageObjectsFactory
             .makeMainScreenPageObject()
+            .waitLoadCellIsVisible()
             .checkCellsElements()
     }
     
