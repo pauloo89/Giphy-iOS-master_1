@@ -77,7 +77,7 @@ final class MainScreenPageObject: BasePageObject {
     }
     
     func closeKeyboard() -> Self {
-        application.keyboards.buttons.element(boundBy: 2).tap()
+        application.keyboards.buttons["Done"].firstMatch.tap()
         return self
     }
     
