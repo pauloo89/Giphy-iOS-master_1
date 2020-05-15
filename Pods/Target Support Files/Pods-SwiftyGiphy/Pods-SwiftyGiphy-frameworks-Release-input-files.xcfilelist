@@ -1,6 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-SwiftyGiphy/Pods-SwiftyGiphy-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework
-${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework
-${BUILT_PRODUCTS_DIR}/Nuke-FLAnimatedImage-Plugin/NukeFLAnimatedImagePlugin.framework
-${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
