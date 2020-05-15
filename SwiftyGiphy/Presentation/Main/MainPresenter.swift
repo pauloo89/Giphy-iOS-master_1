@@ -168,7 +168,18 @@ extension GifData {
         let width = Float(images.downsizedLarge.width) ?? 0
         
         let ratio = height / width
-        
+
+//      let userAvatarUrl: URL? = {
+//        if let urlString = user?.avatarUrl {
+//          return URL(string: urlString)
+//        }
+//        return nil
+//      }()
+//      return DefaultGifCellModel(gifUrl: images.downsizedLarge.url,
+//                                        userAvatarUrl: userAvatarUrl,
+//                                        userName: user?.username,
+//                                        sizeRatio: ratio)
+
         guard let userAvatarUrl = user?.avatarUrl else {
             return DefaultGifCellModel(gifUrl: images.downsizedLarge.url,
                                        userAvatarUrl: nil,

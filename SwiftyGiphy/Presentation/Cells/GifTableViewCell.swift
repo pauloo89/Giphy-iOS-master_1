@@ -21,6 +21,12 @@ struct DefaultGifCellModel: GifCellModel {
 
 
 final class GifTableViewCell: CommonInitTableViewCell {
+//  extension NSObject {
+//    static var reuseIdentifier: String {
+//      return NSStringFromClass(self)
+//    }
+//  }
+  // подходит для любых классов, чтобы в каждой ячейке не копипастить этот ↓ код
     static var reuseId: String {
         return String(describing: GifTableViewCell.self)
     }
@@ -112,7 +118,8 @@ final class GifTableViewCell: CommonInitTableViewCell {
             }
         )
     }
-    
+
+  // private func  configureAvatar(with cellModel: GifCellModel) {
     private func configureAvatarWith(cellModel: GifCellModel) {
         avatarActivityIndicator.startAnimating()
         userNameLabel.text = cellModel.userName?.isEmpty ?? true ? "Инкогнито" : cellModel.userName

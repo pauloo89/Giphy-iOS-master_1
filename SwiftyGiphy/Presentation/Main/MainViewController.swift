@@ -45,13 +45,21 @@ final class MainViewController: UIViewController {
         setupTableView()
         setupViews()
     }
-    
+
+  // объявление методов должно следовать в порядке их вызова
     private func setupViews() {
         view.backgroundColor = .white
 
-        noResultsView.isHidden = true
-        noResultsView.button.isHidden = true
-        noResultsView.titleLabel.text = "No Results"
+      // VC здесь многовато знает. Лучше объявить
+//      class NoResusltView: StateMessageView {
+//        ...
+//        здесь настроить вьюху
+//      }
+
+
+        noResultsView.isHidden = true // оставить только это
+        noResultsView.button.isHidden = true // родитель уже скрыт, зачем его потомков скрывать?
+        noResultsView.titleLabel.text = "No Results"// а это все убрать в NoResusltView
         noResultsView.titleLabel.accessibilityIdentifier = AccessibilityIds.MainScreen.NoResultsView.textMessage
 
         noResultsView.accessibilityIdentifier = AccessibilityIds.MainScreen.NoResultsView.noResultsView
@@ -61,14 +69,16 @@ final class MainViewController: UIViewController {
         errorView.button.setTitle("Refresh", for: .normal)
         errorView.button.addTarget(self, action: #selector(onRefreshButtonTapped), for: .touchUpInside)
         errorView.accessibilityIdentifier = AccessibilityIds.MainScreen.ErrorView.errorView
-        
+
+      // provate func setupSearchBar()
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search GIPHY"
         searchBar.returnKeyType = .done
         searchBar.accessibilityIdentifier = AccessibilityIds.MainScreen.searchBar
-        
+
+      // это все вынести в объявление titleLabel
         titleLabel.textColor = .black
         titleLabel.font = UIFont.boldSystemFont(ofSize: 32)
         titleLabel.text = "Swifty GIPHY"
@@ -82,7 +92,7 @@ final class MainViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 0
+        tableView.estimatedRowHeight = 0 // зачем? по-умолчанию и так норм
         tableView.accessibilityIdentifier = AccessibilityIds.MainScreen.ResultsTableView.resultsTableView
     }
     
@@ -136,7 +146,8 @@ final class MainViewController: UIViewController {
         else {
             return UITableViewCell()
         }
-        
+
+      // здесь каждрый раз gifDataArray преобразуется в [GifCellModel]. ну это уже перебор
         cell.configureWith(cellModel: output.cellModels()[indexPath.row])
         
         return cell

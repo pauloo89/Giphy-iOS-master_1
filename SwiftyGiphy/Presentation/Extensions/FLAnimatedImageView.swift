@@ -4,6 +4,7 @@ import FLAnimatedImage
 
 
 extension FLAnimatedImageView {
+  // честно говоря, ниче не понял, что тут происходит. слишком много усилий надо прикладывать, чтобы это понять. такое поддерживать никто не будет
     @objc open override func nuke_display(image: Image?) {
         guard image != nil else {
             animatedImage = nil

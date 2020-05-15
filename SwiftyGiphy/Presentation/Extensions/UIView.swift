@@ -1,12 +1,13 @@
 import UIKit
 import SnapKit
 
-
+// название UIView говорит о том, что здесь объявлена UIView? тогда UIView+Extensions
 extension UIView {
+  // объявлены safeArea_Some_Anchor, которые нигде не используются
     // Top Anchor
     var safeAreaTopAnchor: NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
-            return self.safeAreaLayoutGuide.topAnchor
+            return self.safeAreaLayoutGuide.topAnchor // self можно опустить. и так понятно, о чем речь
         } else {
             return self.topAnchor
         }

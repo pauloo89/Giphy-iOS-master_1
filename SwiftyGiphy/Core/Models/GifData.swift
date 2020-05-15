@@ -1,6 +1,6 @@
 import Foundation
 
-
+// не критично, но тут хватит и Decodable. на сервер ничего же не загружается
 struct GifData: Codable {
     let images: Images
     let user: User?

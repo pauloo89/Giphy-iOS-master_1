@@ -19,6 +19,7 @@ class NetworkingImpl: Networking {
         parameters: [String: Any],
         completion: @escaping (Swift.Result<Data, Error>) -> Void
     ) {
+      // здесь вообще было AF, который неизвестен компилятору
         SessionManager.default.request(
             url,
             method: method,

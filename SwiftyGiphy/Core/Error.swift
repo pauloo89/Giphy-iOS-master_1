@@ -1,12 +1,12 @@
 import Foundation
 
 
-enum NetworkingError: Error {
+enum NetworkingError: Error { // мб NetworkError?
     case `default`
     
     var localizedDescription: String {
         switch self {
-        case .default: return "Networking Error"
+        case .default: return "Networking Error" // и где тут локазизация? NSLocalizedString
         }
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 import Nuke
 
-
+// и где используется объявление этого интерфейса? нигде кроме AppConfiguringImpl. а смысл тогда?
 protocol AppConfiguring {
     func configure()
 }

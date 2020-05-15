@@ -1,6 +1,6 @@
 import UIKit
 
-
+// а где само объявление интерфейса координатора?
 final class AppCoordinator {
     private(set) var rootController: UIViewController?
     private let configurator: MainAssembly
